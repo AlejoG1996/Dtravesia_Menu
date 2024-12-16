@@ -62,9 +62,20 @@
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
-    color: #fff;
-    font-size: 24px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 44px;
 }
+
+/*second scrreen*/
+.second_screen {
+    
+    background-image: linear-gradient(rgba(0, 92, 52, 0.9), rgba(0, 0, 0, 0.9)), url('../img/fondo_firstscreen.JPG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+
 /*resposive*/
 @media (max-width: 768px) {
     .first_screen_content img {
