@@ -1,9 +1,14 @@
 // Comenzamos en la pantalla inicial
 let currentScreen = 0;
+
+//obtenemos las pantllas
 const firstScreen = document.getElementById("first_screen");
 const secondScreen = document.getElementById("second_screen");
-// Lista de screens
+
+// Lista de pantallas
 const screens = [firstScreen, secondScreen];
+
+//obtenemos los botones flechas
 const arrowRight = document.getElementById("arrowRight");
 
 // Función para mostrar la pantalla activa
@@ -12,23 +17,22 @@ function showScreen() {
     screens.forEach(screen => {
         screen.style.display = "none";
     });
+
     // Mostrar la pantalla activa
     screens[currentScreen].style.display = "flex";
 }
 
 // Función para mover a la siguiente pantalla
-function slideToNextScreen() {
-    if (currentScreen === 0) {
-        secondScreen.style.transform = "translateX(0)"; // Desliza desde verde a azul
+function slideToNextScreen(pantalla) {
+    if (pantalla === 'first') {
+        currentScreen=0;
+        secondScreen.style.transform = "translateX(0)";
     } else if (currentScreen === 1) {
         // Aquí puedes añadir más pantallas si es necesario
     }
     currentScreen++;
     showScreen();
 }
-
-
-
 
 // Evento para el botón de clic
 arrowRight.addEventListener("click", () => {
@@ -54,14 +58,12 @@ function touchMove(e) {
 
 function touchEnd(e) {
     if (touchStartPos > touchEndPos) { // Deslizar a la derecha
-        if (currentScreen === 1 || currentScreen === 2) {
-           // slideToPreviousScreen(); // Volver hacia atrás
-        }
-        slideToNextScreen(); // Avanzar a la siguiente pantalla
-    } else if (touchStartPos < touchEndPos) { // Deslizar a la izquierda
         if (currentScreen === 0) {
-            // slideToNextScreen(); // Avanzar a la siguiente pantalla
+            slideToNextScreen('first'); // Avanzar a la siguiente pantalla
         } 
+        
+    } else if (touchStartPos < touchEndPos) { // Deslizar a la izquierda
+        
     }
 }
 
