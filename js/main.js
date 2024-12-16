@@ -27,28 +27,8 @@ function slideToNextScreen() {
     showScreen();
 }
 
-// Variables para el deslizamiento
-let touchStartX = 0;
-let touchEndX = 0;
 
-function handleSwipe() {
-    // Detecta si el desplazamiento fue hacia la derecha
-    if (touchEndX - touchStartX > 100) { // Umbral de desplazamiento para considerar el swipe
-        if (currentScreen < screens.length) {
-            slideToNextScreen(); // Mueve a la siguiente pantalla
-        }
-    }
-}
 
-// Detectar toque en pantalla para móviles
-document.addEventListener("touchstart", function(event) {
-    touchStartX = event.touches[0].clientX; // Posición de inicio
-}, false);
-
-document.addEventListener("touchend", function(event) {
-    touchEndX = event.changedTouches[0].clientX; // Posición final
-    handleSwipe(); // Verifica si se realizó un desplazamiento hacia la derecha
-}, false);
 
 // Evento para el botón de clic
 arrowRight.addEventListener("click", () => {
@@ -56,6 +36,35 @@ arrowRight.addEventListener("click", () => {
         slideToNextScreen();
     }
 });
+
+document.addEventListener("touchstart", touchStart, false);
+document.addEventListener("touchmove", touchMove, false);
+document.addEventListener("touchend", touchEnd, false);
+
+let touchStartPos = 0;
+let touchEndPos = 0;
+
+function touchStart(e) {
+    touchStartPos = e.changedTouches[0].pageX || e.changedTouches[0].pageY;
+}
+
+function touchMove(e) {
+    touchEndPos = e.changedTouches[0].pageX || e.changedTouches[0].pageY;
+}
+
+function touchEnd(e) {
+    if (touchStartPos > touchEndPos) { // Deslizar a la izquierda
+        if (currentScreen === 1 || currentScreen === 2) {
+           // slideToPreviousScreen(); // Volver hacia atrás
+        }
+    } else if (touchStartPos < touchEndPos) { // Deslizar a la derecha
+        if (currentScreen === 0) {
+            slideToNextScreen(); // Avanzar a la siguiente pantalla
+        } else if (currentScreen === 1) {
+            slideToNextScreen(); // Avanzar a la siguiente pantalla desde "Entrada"
+        }
+    }
+}
 
 // Inicializa la pantalla actual
 showScreen();
