@@ -34,34 +34,22 @@ arrowRight.addEventListener("click", () => {
     }
 });
 
-// Implementación de gestos táctiles para móviles
-        document.addEventListener("touchstart", touchStart, false);
-        document.addEventListener("touchmove", touchMove, false);
-        document.addEventListener("touchend", touchEnd, false);
 
-        let touchStartPos = 0;
-        let touchEndPos = 0;
+let startTouchX = 0;
 
-        function touchStart(e) {
-            touchStartPos = e.changedTouches[0].pageX || e.changedTouches[0].pageY;
-        }
+document.addEventListener('touchstart', function(event) {
+    startTouchX = event.touches[0].clientX; // Captura la posición inicial del toque
+});
 
-        function touchMove(e) {
-            touchEndPos = e.changedTouches[0].pageX || e.changedTouches[0].pageY;
-        }
+document.addEventListener('touchend', function(event) {
+    let endTouchX = event.changedTouches[0].clientX; // Captura la posición final del toque
 
-        function touchEnd(e) {
-            if (touchStartPos > touchEndPos) { // Deslizar a la izquierda
-                if (currentScreen === 1 || currentScreen === 2) {
-                    slideToPreviousScreen(); // Volver hacia atrás
-                }
-            } else if (touchStartPos < touchEndPos) { // Deslizar a la derecha
-                if (currentScreen === 0) {
-                    slideToNextScreen(); // Avanzar a la siguiente pantalla
-                } else if (currentScreen === 1) {
-                    slideToNextScreen(); // Avanzar a la siguiente pantalla desde "Entrada"
-                }
-            }
-        }
+    // Si el desplazamiento fue hacia la derecha
+    if (endTouchX - startTouchX > 50) {
+        slideToNextScreen();
+    }
+});
+
+
 // Inicialización del estado de las pantallas y flechas
 showScreen();
