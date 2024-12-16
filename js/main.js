@@ -60,9 +60,7 @@ function touchEnd(e) {
     } else if (touchStartPos < touchEndPos) { // Deslizar a la derecha
         if (currentScreen === 0) {
             slideToNextScreen(); // Avanzar a la siguiente pantalla
-        } else if (currentScreen === 1) {
-            slideToNextScreen(); // Avanzar a la siguiente pantalla desde "Entrada"
-        }
+        } 
     }
 }
 
