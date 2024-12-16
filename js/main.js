@@ -27,18 +27,15 @@ function slideToNextScreen() {
     showScreen();
 }
 
-// Función para detectar el deslizamiento (swipe) en móviles
+// Variables para el deslizamiento
 let touchStartX = 0;
 let touchEndX = 0;
 
 function handleSwipe() {
-    if (touchEndX < touchStartX) {
-        // Deslizó hacia la izquierda
-        return;
-    }
+    // Detecta si el desplazamiento fue hacia la derecha
     if (touchEndX - touchStartX > 100) { // Umbral de desplazamiento para considerar el swipe
         if (currentScreen < screens.length) {
-            slideToNextScreen();
+            slideToNextScreen(); // Mueve a la siguiente pantalla
         }
     }
 }
@@ -50,15 +47,15 @@ document.addEventListener("touchstart", function(event) {
 
 document.addEventListener("touchend", function(event) {
     touchEndX = event.changedTouches[0].clientX; // Posición final
-    handleSwipe(); // Verificar si fue un swipe hacia la derecha
+    handleSwipe(); // Verifica si se realizó un desplazamiento hacia la derecha
 }, false);
 
-// Evento para el botón
+// Evento para el botón de clic
 arrowRight.addEventListener("click", () => {
     if (currentScreen < screens.length) {
         slideToNextScreen();
     }
 });
 
-// Inicializar pantalla actual
+// Inicializa la pantalla actual
 showScreen();
