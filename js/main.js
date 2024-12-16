@@ -2,7 +2,7 @@ let currentScreen = 0; // Comenzamos en la pantalla verde
 
 const first_screen = document.getElementById("first_screen");
 const second_screen = document.getElementById("second_screen");
-const darkBlueScreen = document.getElementById("darkBlueScreen");
+
 
 
 const arrowRight = document.getElementById("arrowRight");
@@ -17,7 +17,7 @@ function showScreen() {
     });
     // Mostrar la pantalla activa
     screens[currentScreen].style.display = "flex";
-    updateArrows();
+  
 }
 
 // Función para mover a la siguiente pantalla
@@ -45,40 +45,10 @@ function slideToPreviousScreen() {
     showScreen();
 }
 
-// Función para actualizar las flechas visibles según la pantalla actual
-function updateArrows() {
-    // Ocultar/Mostrar flechas según la pantalla
-    if (currentScreen === 0) {
-        // En la pantalla verde
-        arrowLeft.style.display = "none";  // No mostrar flecha izquierda
-        arrowRight.style.display = "block"; // Mostrar flecha hacia la derecha
-        arrowDown.style.display = "none";  // No mostrar flecha hacia abajo
-    } else if (currentScreen === 1) {
-        // En la pantalla de Entrada
-        arrowLeft.style.display = "block"; // Mostrar flecha izquierda
-        arrowRight.style.display = "none"; // Ocultar flecha hacia la derecha
-        arrowDown.style.display = "block"; // Mostrar flecha hacia abajo
-    } else if (currentScreen === 2) {
-        // En la pantalla de Entrada 2
-        arrowLeft.style.display = "block"; // Mostrar flecha izquierda
-        arrowRight.style.display = "none"; // No mostrar flecha hacia la derecha
-        arrowDown.style.display = "none";  // No mostrar flecha hacia abajo
-    }
-}
 
-// Flecha hacia abajo en "Entrada"
-arrowDown.addEventListener("click", () => {
-    if (currentScreen === 1) { // Solo hacer esto en "Entrada"
-        slideToNextScreen();
-    }
-});
 
-// Flechas izquierda y derecha
-arrowLeft.addEventListener("click", () => {
-    if (currentScreen > 0) {
-        slideToPreviousScreen();
-    }
-});
+
+
 
 arrowRight.addEventListener("click", () => {
     if (currentScreen < 2) {
