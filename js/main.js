@@ -4,13 +4,14 @@ let currentScreen = 0;
 //obtenemos las pantllas
 const firstScreen = document.getElementById("first_screen");
 const secondScreen = document.getElementById("second_screen");
-
+const thirdScreen = document.getElementById("third_screen");
 // Lista de pantallas
-const screens = [firstScreen, secondScreen];
+const screens = [firstScreen, secondScreen, thirdScreen];
 
 //obtenemos los botones flechas
 const arrowRight = document.getElementById("arrowRight");
 const arrowLeft = document.getElementById("arrowLeft");
+const arrowRight2 = document.getElementById("arrowRight_2");
 
 // Función para mostrar la pantalla activa
 function showScreen() {
@@ -24,37 +25,42 @@ function showScreen() {
 }
 
 // Función para mover a la siguiente pantalla
-function slideToNextScreen(pantalla) {
-    if (pantalla === 'first') {
-        secondScreen.style.transform = "translateX(0)";
-        currentScreen++;
-    } 
-    showScreen();
+function slideToNextScreen() {
+    // Solo si no es la última pantalla
+    if (currentScreen < screens.length - 1) {
+        currentScreen++; // Incrementamos el índice
+        showScreen(); // Actualizamos la pantalla visible
+    }
 }
 
-  // Función para mover a la pantalla anterior
-  function slideToPreviousScreen(pantalla) {
-    if (pantalla === 'second') {
+// Función para mover a la pantalla anterior
+function slideToPreviousScreen() {
+    if (currentScreen === 1) {
         secondScreen.style.transform = "translateX(100%)"; // Desliza hacia la derecha desde azul
-        currentScreen--;
-    } 
-    
+
+    }
+    currentScreen--;
     showScreen();
 }
 
 // Evento para el botón de clic
 arrowLeft.addEventListener("click", () => {
     if (currentScreen > 0) {
-        slideToPreviousScreen('second');
+        slideToPreviousScreen();
     }
 });
 
 arrowRight.addEventListener("click", () => {
-    if (currentScreen < screens.length) {
-        slideToNextScreen('first');
+
+    if (currentScreen < screens.length - 1) { // Solo si no es la última pantalla
+        slideToNextScreen();
     }
 });
-
+arrowRight2.addEventListener("click", () => {
+    if (currentScreen < screens.length - 1) { // Solo si no es la última pantalla
+        slideToNextScreen();
+    }
+});
 document.addEventListener("touchstart", touchStart, false);
 document.addEventListener("touchmove", touchMove, false);
 document.addEventListener("touchend", touchEnd, false);
@@ -73,14 +79,14 @@ function touchMove(e) {
 function touchEnd(e) {
     if (touchStartPos > touchEndPos) { // Deslizar a la derecha
         if (currentScreen === 0) {
-            slideToNextScreen('first'); // Avanzar a la siguiente pantalla
-        } 
-        
+            slideToNextScreen(); // Avanzar a la siguiente pantalla
+        }
+
     } else if (touchStartPos < touchEndPos) { // Deslizar a la izquierda
-        
+
         if (currentScreen === 1) {
-            slideToPreviousScreen('second');
-        } 
+            slideToPreviousScreen();
+        }
     }
 }
 
