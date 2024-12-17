@@ -171,6 +171,15 @@
     position: absolute;
     top:0;
 } */
+
+.third_screen {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.96)), url('../img/fondo_firstscreen.JPG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+    
+}
 /*resposive*/
 @media (max-width: 900px) {
     .first_screen_content img {
