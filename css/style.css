@@ -184,7 +184,7 @@
         padding: 80px 0;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(min(80px, 100%), 1fr));
-        gap: 2rem;
+        gap: .5rem;
     }
 
     .cards__item{
