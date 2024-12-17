@@ -77,31 +77,34 @@ arrowRight2.addEventListener("click", () => {
     thirdScreen.style.display = "flex";
     currentScreen++;
 });
+
 document.addEventListener("touchstart", touchStart, false);
 document.addEventListener("touchmove", touchMove, false);
 document.addEventListener("touchend", touchEnd, false);
 
-let touchStartPos = 0;
-let touchEndPos = 0;
-let touchStartY = 0;
-let touchEndY = 0;
+let touchStartPosX = 0;
+let touchStartPosY = 0;
+let touchEndPosX = 0;
+let touchEndPosY = 0;
 
 function touchStart(e) {
-    touchStartPos = e.changedTouches[0].pageX; // Solo posición X
-    touchStartY = e.changedTouches[0].pageY;   // Solo posición Y
+    touchStartPosX = e.changedTouches[0].pageX;
+    touchStartPosY = e.changedTouches[0].pageY;
 }
 
 function touchMove(e) {
-    touchEndPos = e.changedTouches[0].pageX;   // Solo posición X
-    touchEndY = e.changedTouches[0].pageY;     // Solo posición Y
+    touchEndPosX = e.changedTouches[0].pageX;
+    touchEndPosY = e.changedTouches[0].pageY;
 }
 
 function touchEnd(e) {
-    // Solo consideramos el movimiento horizontal si la diferencia en Y es pequeña
-    const horizontalMove = Math.abs(touchEndPos - touchStartPos) > Math.abs(touchEndY - touchStartY);
+    // Calculamos las diferencias en ambos ejes
+    let diffX = touchEndPosX - touchStartPosX;
+    let diffY = touchEndPosY - touchStartPosY;
 
-    if (horizontalMove) { 
-        if (touchStartPos > touchEndPos) { // Deslizar a la derecha
+    // Si el movimiento horizontal (diffX) es mayor que el movimiento vertical (diffY), ejecutamos el cambio de pantalla
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX > 0) { // Deslizar a la derecha
             if (currentScreen === 0) {
                 screens.forEach(screen => {
                     screen.style.display = "none";
@@ -115,7 +118,7 @@ function touchEnd(e) {
                 thirdScreen.style.display = "flex";
                 currentScreen++;
             }
-        } else if (touchStartPos < touchEndPos) { // Deslizar a la izquierda
+        } else if (diffX < 0) { // Deslizar a la izquierda
             if (currentScreen === 1) {
                 screens.forEach(screen => {
                     screen.style.display = "none";
