@@ -31,7 +31,7 @@
 /*firs screen*/
 .first_screen {
     
-    background-image: linear-gradient(rgba(0, 92, 52, 0.9), rgba(0, 0, 0, 0.9)), url('../img/fondo_firstscreen.JPG');
+    background-image: linear-gradient(rgba(2, 51, 30, 0.9), rgba(0, 0, 0, 0.9)), url('../img/fondo_firstscreen.JPG');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
