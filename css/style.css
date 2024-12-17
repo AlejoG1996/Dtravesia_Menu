@@ -115,7 +115,7 @@
 .content_funcionamiento{
     color: #fff;
     font-weight: lighter;
-    font-size: 50px;
+    font-size: 2.5rem;
     display: grid;               
     place-items: center;          
     height:auto;               
@@ -172,7 +172,7 @@
     top:0;
 } */
 /*resposive*/
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .first_screen_content img {
         width: 50%;
     }
@@ -180,10 +180,23 @@
         width: 50px;
     }
     .cards{
-        width: 75%;
+        width: 90%;
         padding: 80px 0;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
-        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(min(80px, 100%), 1fr));
+        gap: 2rem;
     }
+
+    .cards__item{
+        padding: 1rem .5rem;
+        border: 2px solid ;
+        color: #b8b0b0;
+    }
+    
+    .cards__title{
+        font-size: .5rem;
+        text-transform: uppercase;
+        margin-bottom: .6rem;
+    }
+    
 }
