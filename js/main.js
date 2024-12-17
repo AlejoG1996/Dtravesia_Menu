@@ -45,21 +45,28 @@ function slideToPreviousScreen() {
 
 // Evento para el botón de clic
 arrowLeft.addEventListener("click", () => {
-    if (currentScreen > 0) {
-        slideToPreviousScreen();
-    }
+    screens.forEach(screen => {
+        screen.style.display = "none";
+    });
+    firstScreen.style.display = "flex";
+    currentScreen--;
 });
 
 arrowRight.addEventListener("click", () => {
 
-    if (currentScreen < screens.length - 1) { // Solo si no es la última pantalla
-        slideToNextScreen();
-    }
+    screens.forEach(screen => {
+        screen.style.display = "none";
+    });
+    secondScreen.style.display = "flex";
+    currentScreen++;
+    
 });
 arrowRight2.addEventListener("click", () => {
-    if (currentScreen < screens.length - 1) { // Solo si no es la última pantalla
-        slideToNextScreen();
-    }
+    screens.forEach(screen => {
+        screen.style.display = "none";
+    });
+    thirdScreen.style.display = "flex";
+    currentScreen++;
 });
 document.addEventListener("touchstart", touchStart, false);
 document.addEventListener("touchmove", touchMove, false);
@@ -79,13 +86,27 @@ function touchMove(e) {
 function touchEnd(e) {
     if (touchStartPos > touchEndPos) { // Deslizar a la derecha
         if (currentScreen === 0) {
-            slideToNextScreen(); // Avanzar a la siguiente pantalla
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            secondScreen.style.display = "flex";
+            currentScreen++;
+        }else if(currentScreen === 1){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            thirdScreen.style.display = "flex";
+            currentScreen++;
         }
 
     } else if (touchStartPos < touchEndPos) { // Deslizar a la izquierda
 
         if (currentScreen === 1) {
-            slideToPreviousScreen();
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            firstScreen.style.display = "flex";
+            currentScreen--;
         }
     }
 }
