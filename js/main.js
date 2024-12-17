@@ -11,6 +11,7 @@ const screens = [firstScreen, secondScreen, thirdScreen];
 //obtenemos los botones flechas
 const arrowRight = document.getElementById("arrowRight");
 const arrowLeft = document.getElementById("arrowLeft");
+const arrowLeft2 = document.getElementById("arrowLeft2");
 const arrowRight2 = document.getElementById("arrowRight_2");
 
 // Función para mostrar la pantalla activa
@@ -49,6 +50,14 @@ arrowLeft.addEventListener("click", () => {
         screen.style.display = "none";
     });
     firstScreen.style.display = "flex";
+    currentScreen--;
+});
+
+arrowLeft2.addEventListener("click", () => {
+    screens.forEach(screen => {
+        screen.style.display = "none";
+    });
+    secondScreen.style.display = "flex";
     currentScreen--;
 });
 
@@ -106,6 +115,12 @@ function touchEnd(e) {
                 screen.style.display = "none";
             });
             firstScreen.style.display = "flex";
+            currentScreen--;
+        }else if(currentScreen === 2){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            secondScreen.style.display = "flex";
             currentScreen--;
         }
     }
