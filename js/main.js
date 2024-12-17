@@ -104,7 +104,7 @@ function touchEnd(e) {
 
     // Si el movimiento horizontal (diffX) es mayor que el movimiento vertical (diffY), ejecutamos el cambio de pantalla
     if (Math.abs(diffX) > Math.abs(diffY)) {
-        if (diffX < 0) { // Deslizar a la derecha
+        if (diffX > 0) { // Deslizar a la derecha
             if (currentScreen === 0) {
                 screens.forEach(screen => {
                     screen.style.display = "none";
@@ -118,7 +118,7 @@ function touchEnd(e) {
                 thirdScreen.style.display = "flex";
                 currentScreen++;
             }
-        } else if (diffX > 0) { // Deslizar a la izquierda
+        } else if (diffX < 0) { // Deslizar a la izquierda
             if (currentScreen === 1) {
                 screens.forEach(screen => {
                     screen.style.display = "none";
@@ -135,6 +135,7 @@ function touchEnd(e) {
         }
     }
 }
+
 
 
 // Inicializa la pantalla actual
