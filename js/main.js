@@ -83,48 +83,56 @@ document.addEventListener("touchend", touchEnd, false);
 
 let touchStartPos = 0;
 let touchEndPos = 0;
+let touchStartY = 0;
+let touchEndY = 0;
 
 function touchStart(e) {
-    touchStartPos = e.changedTouches[0].pageX || e.changedTouches[0].pageY;
+    touchStartPos = e.changedTouches[0].pageX; // Solo posición X
+    touchStartY = e.changedTouches[0].pageY;   // Solo posición Y
 }
 
 function touchMove(e) {
-    touchEndPos = e.changedTouches[0].pageX || e.changedTouches[0].pageY;
+    touchEndPos = e.changedTouches[0].pageX;   // Solo posición X
+    touchEndY = e.changedTouches[0].pageY;     // Solo posición Y
 }
 
 function touchEnd(e) {
-    if (touchStartPos > touchEndPos) { // Deslizar a la derecha
-        if (currentScreen === 0) {
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            secondScreen.style.display = "flex";
-            currentScreen++;
-        }else if(currentScreen === 1){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            thirdScreen.style.display = "flex";
-            currentScreen++;
-        }
+    // Solo consideramos el movimiento horizontal si la diferencia en Y es pequeña
+    const horizontalMove = Math.abs(touchEndPos - touchStartPos) > Math.abs(touchEndY - touchStartY);
 
-    } else if (touchStartPos < touchEndPos) { // Deslizar a la izquierda
-
-        if (currentScreen === 1) {
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            firstScreen.style.display = "flex";
-            currentScreen--;
-        }else if(currentScreen === 2){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            secondScreen.style.display = "flex";
-            currentScreen--;
+    if (horizontalMove) { 
+        if (touchStartPos > touchEndPos) { // Deslizar a la derecha
+            if (currentScreen === 0) {
+                screens.forEach(screen => {
+                    screen.style.display = "none";
+                });
+                secondScreen.style.display = "flex";
+                currentScreen++;
+            } else if (currentScreen === 1) {
+                screens.forEach(screen => {
+                    screen.style.display = "none";
+                });
+                thirdScreen.style.display = "flex";
+                currentScreen++;
+            }
+        } else if (touchStartPos < touchEndPos) { // Deslizar a la izquierda
+            if (currentScreen === 1) {
+                screens.forEach(screen => {
+                    screen.style.display = "none";
+                });
+                firstScreen.style.display = "flex";
+                currentScreen--;
+            } else if (currentScreen === 2) {
+                screens.forEach(screen => {
+                    screen.style.display = "none";
+                });
+                secondScreen.style.display = "flex";
+                currentScreen--;
+            }
         }
     }
 }
+
 
 // Inicializa la pantalla actual
 showScreen();
