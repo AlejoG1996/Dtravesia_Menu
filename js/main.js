@@ -87,12 +87,16 @@ let touchStartPosY = 0;
 let touchEndPosX = 0;
 let touchEndPosY = 0;
 
+let minSwipeDistance = 50; // Distancia mínima para que se considere un deslizamiento
+
 function touchStart(e) {
     touchStartPosX = e.changedTouches[0].pageX;
     touchStartPosY = e.changedTouches[0].pageY;
 }
 
 function touchMove(e) {
+    // No necesitamos hacer nada en touchMove en este caso
+    // Solo estamos controlando el inicio y fin del toque
     touchEndPosX = e.changedTouches[0].pageX;
     touchEndPosY = e.changedTouches[0].pageY;
 }
@@ -102,9 +106,9 @@ function touchEnd(e) {
     let diffX = touchEndPosX - touchStartPosX;
     let diffY = touchEndPosY - touchStartPosY;
 
-    // Si el movimiento horizontal (diffX) es mayor que el movimiento vertical (diffY), ejecutamos el cambio de pantalla
-    if (Math.abs(diffX) > Math.abs(diffY)) {
-        if (diffX > 0) { // Deslizar a la derecha (cuando la diferencia horizontal es positiva)
+    // Si el movimiento horizontal (diffX) es mayor que el movimiento vertical (diffY) y supera la distancia mínima
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > minSwipeDistance) {
+        if (diffX > 0) { // Deslizar a la derecha
             if (currentScreen === 0) {
                 screens.forEach(screen => {
                     screen.style.display = "none";
@@ -118,7 +122,7 @@ function touchEnd(e) {
                 thirdScreen.style.display = "flex";
                 currentScreen++;
             }
-        } else if (diffX < 0) { // Deslizar a la izquierda (cuando la diferencia horizontal es negativa)
+        } else if (diffX < 0) { // Deslizar a la izquierda
             if (currentScreen === 1) {
                 screens.forEach(screen => {
                     screen.style.display = "none";
