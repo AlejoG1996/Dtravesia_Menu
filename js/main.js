@@ -10,14 +10,15 @@ const screens = [firstScreen, secondScreen];
 
 //obtenemos los botones flechas
 const arrowRight = document.getElementById("arrowRight");
+const arrowLeft = document.getElementById("arrowLeft");
 
 // Función para mostrar la pantalla activa
 function showScreen() {
+    console.log(currentScreen)
     // Ocultar todas las pantallas
     screens.forEach(screen => {
         screen.style.display = "none";
     });
-
     // Mostrar la pantalla activa
     screens[currentScreen].style.display = "flex";
 }
@@ -25,19 +26,32 @@ function showScreen() {
 // Función para mover a la siguiente pantalla
 function slideToNextScreen(pantalla) {
     if (pantalla === 'first') {
-        currentScreen=0;
         secondScreen.style.transform = "translateX(0)";
-    } else if (currentScreen === 1) {
-        // Aquí puedes añadir más pantallas si es necesario
-    }
-    currentScreen++;
+        currentScreen++;
+    } 
+    showScreen();
+}
+
+  // Función para mover a la pantalla anterior
+  function slideToPreviousScreen(pantalla) {
+    if (pantalla === 'second') {
+        secondScreen.style.transform = "translateX(100%)"; // Desliza hacia la derecha desde azul
+        currentScreen--;
+    } 
+    
     showScreen();
 }
 
 // Evento para el botón de clic
+arrowLeft.addEventListener("click", () => {
+    if (currentScreen > 0) {
+        slideToPreviousScreen('second');
+    }
+});
+
 arrowRight.addEventListener("click", () => {
     if (currentScreen < screens.length) {
-        slideToNextScreen();
+        slideToNextScreen('first');
     }
 });
 
@@ -64,6 +78,9 @@ function touchEnd(e) {
         
     } else if (touchStartPos < touchEndPos) { // Deslizar a la izquierda
         
+        if (currentScreen === 1) {
+            slideToPreviousScreen('second');
+        } 
     }
 }
 

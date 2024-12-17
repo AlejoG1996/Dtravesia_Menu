@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,15 @@
     <link rel="stylesheet" href="./css/style.css">
     <!--FONT AWESOME-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!--FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
     <title>D'TRAVESIA MENÚ</title>
 </head>
+
 <body>
     <div class="container">
         <div class="screen first_screen" id="first_screen">
@@ -18,9 +26,45 @@
             <div class="arrow arrow-right" id="arrowRight"><i class="fa-solid fa-chevron-right"></i></div>
         </div>
         <div class="screen second_screen" id="second_screen">
-            <div class="text">Entrada</div>
+            <div class="second_screen_content">
+                <div class="header_funcionamiento">
+                    <img src="./img/logo_ladoblanco.png" class="right-image" alt="logo">
+                </div>
+                <div class="content_funcionamiento">
+                    <p>Cómo navegar</p>
+                    <p>este menú:</p>
+                    <section class="cards">
+                        
+                        <article class="cards__item">
+                            <div class="cont_img">
+                                <img src="./img/desliza-derecha.png" >
+                                <img src="./img/desliza-izquierda.png">
+                            </div>
+                            <p class="cards__info">Desliza  hacia la <span>IZQUIERDA</span> o <span>DERECHA</span> para navegar entre categorías </p>
+                        </article>
+            
+                        <article class="cards__item">
+                            <div class="cont_img">
+                                <img src="./img/deslizar-arriba.png" >
+                                <img src="./img/deslizar-abajo.png" >
+                            </div>
+                            <p class="cards__info">Desliza  hacia la <span>ARRIBA</span>  o <span>ABAJO</span> para entrar a cada categoria</p>
+                        </article>
+            
+                    </section>
+                </div>
+                
+            </div>
+            <div class="arrow arrow-left" id="arrowLeft"><i class="fa-solid fa-angle-left"></i></div>
+            <div class="arrow arrow-right" id="arrowRight"><i class="fa-solid fa-chevron-right"></i></div>
         </div>
+        <!-- <div class="screen t_screen" id="t_screen">
+            <div class="Header_Entradas">
+
+            </div>
+        </div> -->
     </div>
     <script src="./js/main.js"></script>
 </body>
+
 </html>
