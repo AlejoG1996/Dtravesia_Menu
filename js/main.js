@@ -1,5 +1,5 @@
 // Comenzamos en la pantalla inicial
-let currentScreen = 0;
+let currentScreen = 14;
 
 //obtenemos las pantllas
 const firstScreen = document.getElementById("first_screen");
@@ -14,9 +14,13 @@ const nineScreen = document.getElementById("nine_screen");
 const tenScreen = document.getElementById("ten_screen");
 const elevenScreen = document.getElementById("eleven_screen");
 const twelveScreen = document.getElementById("twelve_screen");
+const thirteenScreen = document.getElementById("thirteen_screen");
+const fourteenScreen = document.getElementById("fourteen_screen");
+const fifteenScreen = document.getElementById("fifteen_screen");
+
 // Lista de pantallas
 const screens = [firstScreen, secondScreen, thirdScreen,fourScreen,fiveScreen,sixScreen,sevenScreen,eigthScreen,
-    nineScreen,tenScreen,elevenScreen,twelveScreen
+    nineScreen,tenScreen,elevenScreen,twelveScreen,thirteenScreen,fourteenScreen,fifteenScreen
 ];
 
 //obtenemos los botones flechas

@@ -395,6 +395,56 @@
     z-index: 1;
 }
 
+.thirteen_screen{
+    background-image: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.99)), url('../img/fondp_cocteles4.JPG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+.fourteen_screen{
+    background-image: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.99)), url('../img/fondogaseosas.JPG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+
+.fifteen_screen{
+    background-image: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.99)), url('../img/fondo_firstscreen.JPG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+
+.last_screen_content {
+    display: block;  /* Contenedor en bloque (por defecto) */
+    text-align: center;  /* Centra los enlaces dentro del contenedor */
+    
+
+}
+
+a{
+    background-color: #c19d68;
+    display: block;  /* Hace que cada enlace sea un bloque */
+    font-size: 2rem;  /* Tamaño de fuente */
+    color: #fff;  /* Color del texto */
+    text-decoration: none !important;  /* Elimina el subrayado de los enlaces */
+    font-weight: bold;  /* Hace el texto más destacado */
+    margin-bottom: 10px;  /* Espacio entre los enlaces */
+    transition: color 0.3s ease, transform 0.3s ease;  /* Agrega transición suave */
+    height: 60px;
+    text-align: center;
+    width: 300px;
+    border-radius: 10px;
+    padding-top: 8px;
+    color: #000 !important;
+}
+
+.last_screen_content a:hover {
+   
+}
 /*resposive*/
 @media (max-width: 900px) {
     .first_screen_content img {
