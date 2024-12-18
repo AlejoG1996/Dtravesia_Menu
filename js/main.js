@@ -128,6 +128,7 @@ function touchEnd(e) {
             currentScreen++;
         }
 
+
     } else if (touchStartPos < touchEndPos) { // Deslizar a la izquierda
 
         if (currentScreen === 1) {
@@ -141,6 +142,13 @@ function touchEnd(e) {
                 screen.style.display = "none";
             });
             secondScreen.style.display = "flex";
+            currentScreen--;
+        }
+        else if(currentScreen === 3){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            thirdScreen.style.display = "flex";
             currentScreen--;
         }
     }
