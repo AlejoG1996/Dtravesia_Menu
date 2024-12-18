@@ -5,14 +5,19 @@ let currentScreen = 0;
 const firstScreen = document.getElementById("first_screen");
 const secondScreen = document.getElementById("second_screen");
 const thirdScreen = document.getElementById("third_screen");
+const fourScreen = document.getElementById("four_screen");
+
 // Lista de pantallas
-const screens = [firstScreen, secondScreen, thirdScreen];
+const screens = [firstScreen, secondScreen, thirdScreen,fourScreen];
 
 //obtenemos los botones flechas
 const arrowRight = document.getElementById("arrowRight");
+const arrowRight2 = document.getElementById("arrowRight_2");
+const arrowRight3 = document.getElementById("arrowRight_3");
+
 const arrowLeft = document.getElementById("arrowLeft");
 const arrowLeft2 = document.getElementById("arrowLeft2");
-const arrowRight2 = document.getElementById("arrowRight_2");
+
 
 // Función para mostrar la pantalla activa
 function showScreen() {
@@ -77,6 +82,15 @@ arrowRight2.addEventListener("click", () => {
     thirdScreen.style.display = "flex";
     currentScreen++;
 });
+arrowRight3.addEventListener("click", () => {
+    screens.forEach(screen => {
+        screen.style.display = "none";
+    });
+    fourScreen.style.display = "flex";
+    currentScreen++;
+});
+
+//Movieminto web
 document.addEventListener("touchstart", touchStart, false);
 document.addEventListener("touchmove", touchMove, false);
 document.addEventListener("touchend", touchEnd, false);
@@ -105,6 +119,12 @@ function touchEnd(e) {
                 screen.style.display = "none";
             });
             thirdScreen.style.display = "flex";
+            currentScreen++;
+        }else if(currentScreen===2){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            fourScreen.style.display = "flex";
             currentScreen++;
         }
 
