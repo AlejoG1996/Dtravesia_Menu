@@ -30,7 +30,7 @@
 
 /*firs screen*/
 .first_screen {
-    
+
     background-image: linear-gradient(rgba(2, 51, 30, 0.9), rgba(0, 0, 0, 0.9)), url('../img/fondo_firstscreen.JPG');
     background-size: cover;
     background-repeat: no-repeat;
@@ -59,7 +59,7 @@
     transition: opacity 0.3s ease;
 }
 
-.arrow-right{
+.arrow-right {
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
@@ -74,6 +74,7 @@
     color: rgba(255, 255, 255, 0.5);
     font-size: 34px;
 }
+
 /*second scrreen*/
 .second_screen {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.96)), url('../img/fondo_second.png');
@@ -81,57 +82,58 @@
     background-repeat: no-repeat;
     background-position: center;
     z-index: 1;
-    
+
 }
 
-.header_funcionamiento{
+.header_funcionamiento {
     width: 100%;
     height: 100px;
     position: absolute;
     left: 0;
-    top:0;
-    display: flex; 
-    justify-content: flex-end; 
-    align-items: center; 
-    padding: 0 10px; 
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 10px;
 }
-.left-image{
+
+.left-image {
     width: 80px;
     margin: 20px;
 }
 
-.right-image{
+.right-image {
     width: 220px;
     margin: 20px;
 }
 
-.content_funcionamiento{ 
+.content_funcionamiento {
     width: 100%;
     position: absolute;
     left: 0;
     bottom: 60px;
 }
 
-.content_funcionamiento{
+.content_funcionamiento {
     color: #fff;
     font-weight: lighter;
     font-size: 2.5rem;
-    display: grid;               
-    place-items: center;          
-    height:auto;               
-    text-align: center;  
+    display: grid;
+    place-items: center;
+    height: auto;
+    text-align: center;
 }
 
-.content_funcionamiento p{
+.content_funcionamiento p {
     width: 100%;
     left: 0;
 }
 
-.image_funcionamiento{
+.image_funcionamiento {
     width: 400px;
 }
 
-.cards{
+.cards {
     width: 50%;
     padding: 80px 0;
     display: grid;
@@ -139,28 +141,28 @@
     gap: 2rem;
 }
 
-.cards__item{
+.cards__item {
     padding: 2rem 1.5rem;
-    border: 2px solid ;
+    border: 2px solid;
     color: #b8b0b0;
 }
 
-.cards__title{
+.cards__title {
     font-size: 1rem;
     text-transform: uppercase;
     margin-bottom: .6rem;
 }
 
-.cards__info{
+.cards__info {
     font-size: 1rem;
     font-weight: 300;
 }
 
-.cards__info span{
+.cards__info span {
     font-weight: bold;
 }
 
-.cont_img img{
+.cont_img img {
     width: 70px;
 }
 
@@ -172,22 +174,56 @@
     top:0;
 } */
 
+/*tercera pantalla*/
+
+
 .third_screen {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.96)), url('../img/fondo_firstscreen.JPG');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.66), rgba(0, 0, 0, 0.96)), url('../img/fondo_entrada.JPG');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     z-index: 1;
+
+}
+
+.content_entrada {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start; 
+    padding: 30px 50px;
+    letter-spacing:0;
+    z-index: 1;
+    line-height: 0.8;
+    height: 400px;
+}
+
+.title_entr {
+    font-family: "Londrina Sketch", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 100px;
+    color: #fff;
+    margin: 0; /* Elimina el margen entre los <p> */
+    padding: 0; /* Elimina el padding */
+    display: block;
+
     
 }
+
 /*resposive*/
 @media (max-width: 900px) {
     .first_screen_content img {
         width: 50%;
     }
-    .cont_img img{
+
+    .cont_img img {
         width: 50px;
     }
-    
-    
+
+
 }
