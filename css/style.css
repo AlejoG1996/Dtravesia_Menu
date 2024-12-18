@@ -320,11 +320,11 @@
     text-transform: uppercase;
     font-size: 0.8rem;
     font-weight: bold;
-    min-width: 320px;
+    min-width: 350px;
 }
 
 .row{
-    width: 95% !important;
+    width: 98% !important;
    
 }
 
