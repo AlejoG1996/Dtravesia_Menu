@@ -11,10 +11,12 @@ const sixScreen = document.getElementById("six_screen");
 const sevenScreen = document.getElementById("seven_screen");
 const eigthScreen = document.getElementById("eigth_screen");
 const nineScreen = document.getElementById("nine_screen");
-
+const tenScreen = document.getElementById("ten_screen");
+const elevenScreen = document.getElementById("eleven_screen");
+const twelveScreen = document.getElementById("twelve_screen");
 // Lista de pantallas
 const screens = [firstScreen, secondScreen, thirdScreen,fourScreen,fiveScreen,sixScreen,sevenScreen,eigthScreen,
-    nineScreen
+    nineScreen,tenScreen,elevenScreen,twelveScreen
 ];
 
 //obtenemos los botones flechas
@@ -175,12 +177,34 @@ function touchEnd(e) {
             });
             eigthScreen.style.display = "flex";
             currentScreen++;
+            
         }
         else if(currentScreen===8){
             screens.forEach(screen => {
                 screen.style.display = "none";
             });
             nineScreen.style.display = "flex";
+            currentScreen++;
+        }
+        else if(currentScreen===9){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            tenScreen.style.display = "flex";
+            currentScreen++;
+        }
+        else if(currentScreen===10){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            elevenScreen.style.display = "flex";
+            currentScreen++;
+        }
+        else if(currentScreen===11){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            twelveScreen.style.display = "flex";
             currentScreen++;
         }
 
@@ -247,6 +271,27 @@ function touchEnd(e) {
                 screen.style.display = "none";
             });
             nineScreen.style.display = "flex";
+            currentScreen--;
+        }
+        else if(currentScreen === 10){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            ten.style.display = "flex";
+            currentScreen--;
+        }
+        else if(currentScreen === 11){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            elevenScreen.style.display = "flex";
+            currentScreen--;
+        }
+        else if(currentScreen === 12){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            twelveScreen.style.display = "flex";
             currentScreen--;
         }
     }

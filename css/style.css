@@ -371,6 +371,30 @@
     background-position: center;
     z-index: 1;
 }
+
+.ten_screen{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.86)), url('../img/fondo_cocteles.JPG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+
+.eleven_screen{
+    background-image: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.99)), url('../img/fondo_cocteles2.JPG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+.twelve_screen{
+    background-image: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.99)), url('../img/fondp_cocteles3.JPG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+
 /*resposive*/
 @media (max-width: 900px) {
     .first_screen_content img {
