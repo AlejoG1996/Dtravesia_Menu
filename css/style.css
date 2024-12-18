@@ -178,7 +178,7 @@
 
 
 .third_screen {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.66), rgba(0, 0, 0, 0.96)), url('../img/fondo_entrada.JPG');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.76)), url('../img/fondo_entrada.JPG');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
