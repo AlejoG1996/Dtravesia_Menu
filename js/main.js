@@ -8,9 +8,14 @@ const thirdScreen = document.getElementById("third_screen");
 const fourScreen = document.getElementById("four_screen");
 const fiveScreen = document.getElementById("five_screen");
 const sixScreen = document.getElementById("six_screen");
+const sevenScreen = document.getElementById("seven_screen");
+const eigthScreen = document.getElementById("eigth_screen");
+const nineScreen = document.getElementById("nine_screen");
 
 // Lista de pantallas
-const screens = [firstScreen, secondScreen, thirdScreen,fourScreen,fiveScreen,sixScreen];
+const screens = [firstScreen, secondScreen, thirdScreen,fourScreen,fiveScreen,sixScreen,sevenScreen,eigthScreen,
+    nineScreen
+];
 
 //obtenemos los botones flechas
 const arrowRight = document.getElementById("arrowRight");
@@ -143,6 +148,41 @@ function touchEnd(e) {
             sixScreen.style.display = "flex";
             currentScreen++;
         }
+        else if(currentScreen===5){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            sevenScreen.style.display = "flex";
+            currentScreen++;
+        }
+        else if(currentScreen===5){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            sevenScreen.style.display = "flex";
+            currentScreen++;
+        }
+        else if(currentScreen===6){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            sevenScreen.style.display = "flex";
+            currentScreen++;
+        }
+        else if(currentScreen===7){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            eigthScreen.style.display = "flex";
+            currentScreen++;
+        }
+        else if(currentScreen===8){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            nineScreen.style.display = "flex";
+            currentScreen++;
+        }
 
 
     } else if (touchStartPos < touchEndPos) { // Deslizar a la izquierda
@@ -178,7 +218,35 @@ function touchEnd(e) {
             screens.forEach(screen => {
                 screen.style.display = "none";
             });
+            fiveScreen.style.display = "flex";
+            currentScreen--;
+        }
+        else if(currentScreen === 6){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
             sixScreen.style.display = "flex";
+            currentScreen--;
+        }
+        else if(currentScreen === 7){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            sevenScreen.style.display = "flex";
+            currentScreen--;
+        }
+        else if(currentScreen === 8){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            eigthScreen.style.display = "flex";
+            currentScreen--;
+        }
+        else if(currentScreen === 9){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            nineScreen.style.display = "flex";
             currentScreen--;
         }
     }
