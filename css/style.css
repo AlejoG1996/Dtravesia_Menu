@@ -292,7 +292,7 @@
    padding-right: 30px;
 }
 .entradas_c{
-     display: flex; /* Este sigue siendo flex, pero no se necesita justify-content: space-between */
+    display: flex; /* Este sigue siendo flex, pero no se necesita justify-content: space-between */
     flex-direction: row; /* Mantener la fila para los elementos internos */
     align-items: center; /* Alinea los elementos verticalmente al centro */
     width: 100%;
@@ -301,6 +301,10 @@
     margin-bottom: 10px; /* Añadir un pequeño margen entre las entradas */
     justify-content: space-between;
     margin-bottom: 20px;
+    
+}
+.price_cont{
+    padding-right: 10px;
 }
 .conten-header-entradas {
     display: flex;
@@ -317,6 +321,7 @@
     font-size: .8rem;
     max-width: 300px;
 }
+
 /*resposive*/
 @media (max-width: 900px) {
     .first_screen_content img {
