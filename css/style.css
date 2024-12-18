@@ -178,7 +178,7 @@
 
 
 .third_screen {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.76)), url('../img/fondo_entrada.JPG');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.86)), url('../img/fondo_entrada.JPG');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -207,7 +207,7 @@
     font-family: "Londrina Sketch", serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 1rem;
+    font-size: 3rem;
     color: #fff;
     margin: 0; /* Elimina el margen entre los <p> */
     padding: 0; /* Elimina el padding */
