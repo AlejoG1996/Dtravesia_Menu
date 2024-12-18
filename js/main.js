@@ -1,5 +1,5 @@
 // Comenzamos en la pantalla inicial
-let currentScreen = 14;
+let currentScreen = 0;
 
 //obtenemos las pantllas
 const firstScreen = document.getElementById("first_screen");
