@@ -323,6 +323,9 @@
     
 }
 
+.row{
+    width: 99% !important;
+}
 
 /*resposive*/
 @media (max-width: 900px) {
