@@ -6,9 +6,11 @@ const firstScreen = document.getElementById("first_screen");
 const secondScreen = document.getElementById("second_screen");
 const thirdScreen = document.getElementById("third_screen");
 const fourScreen = document.getElementById("four_screen");
+const fiveScreen = document.getElementById("five_screen");
+const sixScreen = document.getElementById("six_screen");
 
 // Lista de pantallas
-const screens = [firstScreen, secondScreen, thirdScreen,fourScreen];
+const screens = [firstScreen, secondScreen, thirdScreen,fourScreen,fiveScreen,sixScreen];
 
 //obtenemos los botones flechas
 const arrowRight = document.getElementById("arrowRight");
@@ -127,6 +129,20 @@ function touchEnd(e) {
             fourScreen.style.display = "flex";
             currentScreen++;
         }
+        else if(currentScreen===3){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            fiveScreen.style.display = "flex";
+            currentScreen++;
+        }
+        else if(currentScreen===4){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            sixScreen.style.display = "flex";
+            currentScreen++;
+        }
 
 
     } else if (touchStartPos < touchEndPos) { // Deslizar a la izquierda
@@ -149,6 +165,20 @@ function touchEnd(e) {
                 screen.style.display = "none";
             });
             thirdScreen.style.display = "flex";
+            currentScreen--;
+        }
+        else if(currentScreen === 4){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            fourScreen.style.display = "flex";
+            currentScreen--;
+        }
+        else if(currentScreen === 5){
+            screens.forEach(screen => {
+                screen.style.display = "none";
+            });
+            sixScreen.style.display = "flex";
             currentScreen--;
         }
     }
