@@ -107,6 +107,9 @@ document.addEventListener("touchend", touchEnd, false);
 let touchStartPos = 0;
 let touchEndPos = 0;
 
+
+
+
 function touchStart(e) {
     touchStartPos = e.changedTouches[0].pageX || e.changedTouches[0].pageY;
 }
@@ -116,186 +119,27 @@ function touchMove(e) {
 }
 
 function touchEnd(e) {
-    if (touchStartPos > touchEndPos) { // Deslizar a la derecha
-        if (currentScreen === 0) {
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            secondScreen.style.display = "flex";
-            currentScreen++;
-        }else if(currentScreen === 1){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            thirdScreen.style.display = "flex";
-            currentScreen++;
-        }else if(currentScreen===2){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            fourScreen.style.display = "flex";
-            currentScreen++;
-        }
-        else if(currentScreen===3){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            fiveScreen.style.display = "flex";
-            currentScreen++;
-        }
-        else if(currentScreen===4){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            sixScreen.style.display = "flex";
-            currentScreen++;
-        }
-        else if(currentScreen===5){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            sevenScreen.style.display = "flex";
-            currentScreen++;
-        }
-        else if(currentScreen===5){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            sevenScreen.style.display = "flex";
-            currentScreen++;
-        }
-        else if(currentScreen===6){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            sevenScreen.style.display = "flex";
-            currentScreen++;
-        }
-        else if(currentScreen===7){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            eigthScreen.style.display = "flex";
-            currentScreen++;
-            
-        }
-        else if(currentScreen===8){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            nineScreen.style.display = "flex";
-            currentScreen++;
-        }
-        else if(currentScreen===9){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            tenScreen.style.display = "flex";
-            currentScreen++;
-        }
-        else if(currentScreen===10){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            elevenScreen.style.display = "flex";
-            currentScreen++;
-        }
-        else if(currentScreen===11){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            twelveScreen.style.display = "flex";
-            currentScreen++;
-        }
+    // Calculamos la diferencia entre el inicio y el fin del deslizamiento
+    const threshold = 50; // Umbral para detectar el deslizamiento
+    if (Math.abs(touchStartPos - touchEndPos) < threshold) return; // No hacer nada si el deslizamiento es pequeño
 
-
-    } else if (touchStartPos < touchEndPos) { // Deslizar a la izquierda
-
-        if (currentScreen === 1) {
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            firstScreen.style.display = "flex";
-            currentScreen--;
-        }else if(currentScreen === 2){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            secondScreen.style.display = "flex";
-            currentScreen--;
-        }
-        else if(currentScreen === 3){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            thirdScreen.style.display = "flex";
-            currentScreen--;
-        }
-        else if(currentScreen === 4){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            fourScreen.style.display = "flex";
-            currentScreen--;
-        }
-        else if(currentScreen === 5){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            fiveScreen.style.display = "flex";
-            currentScreen--;
-        }
-        else if(currentScreen === 6){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            sixScreen.style.display = "flex";
-            currentScreen--;
-        }
-        else if(currentScreen === 7){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            sevenScreen.style.display = "flex";
-            currentScreen--;
-        }
-        else if(currentScreen === 8){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            eigthScreen.style.display = "flex";
-            currentScreen--;
-        }
-        else if(currentScreen === 9){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            nineScreen.style.display = "flex";
-            currentScreen--;
-        }
-        else if(currentScreen === 10){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            ten.style.display = "flex";
-            currentScreen--;
-        }
-        else if(currentScreen === 11){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            elevenScreen.style.display = "flex";
-            currentScreen--;
-        }
-        else if(currentScreen === 12){
-            screens.forEach(screen => {
-                screen.style.display = "none";
-            });
-            twelveScreen.style.display = "flex";
-            currentScreen--;
-        }
+    // Deslizar a la derecha (cambiar a la pantalla siguiente)
+    if (touchStartPos > touchEndPos && currentScreen < screens.length - 1) { 
+        changeScreen(currentScreen + 1);
+    }
+    // Deslizar a la izquierda (volver a la pantalla anterior)
+    else if (touchStartPos < touchEndPos && currentScreen > 0) { 
+        changeScreen(currentScreen - 1);
     }
 }
 
+function changeScreen(newScreen) {
+    // Ocultar todas las pantallas
+    screens.forEach(screen => screen.style.display = "none");
+
+    // Mostrar la pantalla actual
+    screens[newScreen].style.display = "flex";
+    currentScreen = newScreen;
+}
 // Inicializa la pantalla actual
 showScreen();
