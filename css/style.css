@@ -320,12 +320,12 @@
     text-transform: uppercase;
     font-size: 0.8rem;
     font-weight: bold;
-    min-width: 410px;
+    min-width: 450px;
 }
 
 .row{
-    width: 99% !important;
-    padding-right: 10px !important;
+    width: 97% !important;
+    padding-right: 10px;
 }
 
 /*resposive*/
