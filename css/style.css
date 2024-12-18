@@ -110,7 +110,7 @@
     width: 100%;
     position: absolute;
     left: 0;
-    bottom: 60px;
+    top:200px;
 }
 
 .content_funcionamiento {
@@ -121,23 +121,31 @@
     place-items: center;
     height: auto;
     text-align: center;
+    
 }
 
 .content_funcionamiento p {
     width: 100%;
     left: 0;
+    
 }
 
 .image_funcionamiento {
     width: 400px;
 }
-
+.tlt_nav{
+    line-height: 0.8;
+    margin: 0px;
+    padding: 0px;
+}
 .cards {
     width: 50%;
     padding: 80px 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     gap: 2rem;
+    padding-top: 0px;
+    padding-bottom: 20px;
 }
 
 .cards__item {
@@ -254,6 +262,7 @@
     align-items: flex-start; /* Alineamos el texto a la izquierda */
     line-height: 0.8;
     padding-top: 30px;
+   
 }
 .text_icon{
     color: #fff;
@@ -261,7 +270,8 @@
     font-weight: 400;
     font-style: normal;
     font-size: 2.9rem;
-    
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 .text-color{
@@ -269,17 +279,6 @@
 }
 
 .content_entradas{
-    /* width: 100%;
-    position: absolute;
-    left: 0;
-    top: 130px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 0 10px;
-    color: #fff;
-    display: flex;
-   padding-right: 30px; */
    width: 100%;
    position: absolute;
    left: 0;
@@ -292,20 +291,14 @@
    
 }
 .entradas_c{
-    display: flex; /* Este sigue siendo flex, pero no se necesita justify-content: space-between */
-    flex-direction: row; /* Mantener la fila para los elementos internos */
-    align-items: center; /* Alinea los elementos verticalmente al centro */
-    width: 100%;
+    width: 100% !important;
     border-bottom: 2px dotted #ffffff70;
     padding-bottom: 10px;
     margin-bottom: 10px; /* Añadir un pequeño margen entre las entradas */
-    justify-content: space-between;
-    margin-bottom: 20px;
-    
+   
+   
 }
-.price_cont{
-    padding-right: 30px;
-}
+
 .conten-header-entradas {
     display: flex;
     flex-direction: column; /* Los elementos dentro de este contenedor estarán apilados verticalmente */
@@ -321,6 +314,15 @@
     font-size: .8rem;
     max-width: 300px;
 }
+
+.tlt_price{
+    color: #c19d68;
+    text-transform: uppercase;
+    font-size: 0.90rem;
+    font-weight: bold;
+    
+}
+
 
 /*resposive*/
 @media (max-width: 900px) {
